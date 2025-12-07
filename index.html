@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Edge - Premium Streetwear</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            line-height: 1.6;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            padding: 1.5rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #ff6b35;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #ff6b35;
+        }
+        
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23151515" width="1200" height="600"/><text x="50%25" y="50%25" font-size="120" fill="%23222" text-anchor="middle" dominant-baseline="middle" font-family="Arial Black">AURA EDGE</text></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #ccc;
+            animation: fadeInUp 1.2s ease;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 50px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1.4s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .product-card {
+            background: #1a1a1a;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.3);
+            border-color: #ff6b35;
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 350px;
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #333;
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        .product-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #ff6b35;
+        }
+        
+        .product-info p {
+            color: #aaa;
+            margin-bottom: 1rem;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 5rem 5%;
+            background: #151515;
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .about-content h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+        
+        .about-content p {
+            font-size: 1.2rem;
+            color: #ccc;
+            line-height: 1.8;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 5rem 5%;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .contact h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.3rem;
+            color: #ccc;
+        }
+        
+        .contact-item a {
+            color: #ff6b35;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-item a:hover {
+            color: #f7931e;
+        }
+        
+        /* Footer */
+        footer {
+            background: #0a0a0a;
+            padding: 2rem 5%;
+            text-align: center;
+            border-top: 2px solid #ff6b35;
+        }
+        
+        footer p {
+            color: #666;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">AURA EDGE</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>AURA EDGE</h1>
+            <p>Premium Streetwear. Oversized Perfection.</p>
+            <a href="#products" class="cta-button">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <h2 class="section-title">Our Collection</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-image">👕</div>
+                <div class="product-info">
+                    <h3>Classic Oversized Tee</h3>
+                    <p>Premium cotton blend. Ultimate comfort. Street-ready style.</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">👕</div>
+                <div class="product-info">
+                    <h3>Graphic Oversized Tee</h3>
+                    <p>Bold designs. Oversized fit. Make a statement.</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">👕</div>
+                <div class="product-info">
+                    <h3>Limited Edition Drop</h3>
+                    <p>Exclusive designs. Premium quality. Limited stock.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-content">
+            <h2>About Aura Edge</h2>
+            <p>
+                Aura Edge is more than just clothing - it's a lifestyle. We specialize in premium oversized tees 
+                that blend comfort with cutting-edge streetwear aesthetics. Every piece is crafted with attention 
+                to detail, designed for those who dare to stand out and express their unique aura.
+            </p>
+            <br>
+            <p>
+                Our oversized tees are made from the finest materials, ensuring maximum comfort and durability. 
+                Whether you're hitting the streets or chilling with friends, Aura Edge has got you covered.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-info">
+            <div class="contact-item">
+                <span>📞</span>
+                <a href="tel:9999922244">+91 9999922244</a>
+            </div>
+            <div class="contact-item">
+                <span>📧</span>
+                <span>Contact us for orders and inquiries</span>
+            </div>
+            <div class="contact-item">
+                <span>📍</span>
+                <span>Delivering Premium Streetwear Nationwide</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Aura Edge. All rights reserved. Premium Streetwear Brand.</p>
+    </footer>
+</body>
+</html>
